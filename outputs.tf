@@ -29,3 +29,13 @@ output "nat_public_ip" {
   description = "Public Elastic IP of AWS NAT Gateway (only one created)"
   value       = module.vpc_application.nat_public_ips[0]
 }
+
+output "vpc_id" {
+  description = "ID of Application VPC created"
+  value       = module.vpc_application.vpc_id
+}
+
+output "vpc_arn" {
+  description = "Amazon Resource Name (ARN) of Application VPC created"
+  value       = module.vpc_application.vpc_arn
+}
