@@ -39,3 +39,8 @@ output "vpc_arn" {
   description = "Amazon Resource Name (ARN) of Application VPC created"
   value       = module.vpc_application.vpc_arn
 }
+
+output "vpc_cidr" {
+  description = "Network CIDR of Application VPC created"
+  value       = module.vpc_application.vpc_cidr_block
+}
