@@ -42,5 +42,5 @@ resource "aws_iam_policy" "ecr_access_policy" {
 
 resource "aws_iam_user_policy_attachment" "ecr_user_policy_attach" {
   user       = aws_iam_user.ecr_user.name
-  policy_arn = aws_iam_policy.ecr_policy.arn
+  policy_arn = aws_iam_policy.ecr_access_policy.arn
 }
