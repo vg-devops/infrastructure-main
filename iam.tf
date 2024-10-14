@@ -37,13 +37,39 @@ resource "aws_iam_policy" "ecr_access_policy" {
         Resource = "arn:aws:ecr:*:*:repository/*"
       },
       {
-        Effect = "Allow"
-        Action = [
-          "eks:DescribeCluster",
-          "eks:ListClusters",
-          "eks:AccessKubernetesApi"
-        ],
-        "Resource": "*"
+          "Effect": "Allow",
+          "Action": [
+              "eks:*"
+          ],
+          "Resource": "arn:aws:eks:eu-west-2:*:cluster/xa-assessment-cluster"
+      },
+      {
+          "Effect": "Allow",
+          "Action": [
+              "ec2:DescribeInstances",
+              "ec2:DescribeRouteTables",
+              "ec2:DescribeSecurityGroups",
+              "ec2:DescribeSubnets",
+              "ec2:DescribeVolumes",
+              "ec2:DescribeVpcs"
+          ],
+          "Resource": "*",
+          "Condition": {
+              "StringEquals": {
+                  "aws:RequestedRegion": "eu-west-2"
+              }
+          }
+      },
+      {
+          "Effect": "Allow",
+          "Action": [
+              "iam:GetRole",
+              "iam:ListAttachedRolePolicies",
+              "iam:ListRoles",
+              "iam:ListRolePolicies",
+              "iam:PassRole"
+          ],
+          "Resource": "*"
       }
     ]
   })
