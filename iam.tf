@@ -41,7 +41,7 @@ resource "aws_iam_policy" "ecr_access_policy" {
           "Action": [
               "eks:*"
           ],
-          "Resource": "arn:aws:eks:eu-west-2:*:cluster/xa-assessment-cluster"
+          "Resource": "arn:aws:eks:eu-west-2:*:cluster/exa-assessment-cluster"
       },
       {
           "Effect": "Allow",
