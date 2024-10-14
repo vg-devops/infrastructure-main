@@ -35,6 +35,15 @@ resource "aws_iam_policy" "ecr_access_policy" {
           "ecr:CreateRepository"
         ]
         Resource = "arn:aws:ecr:*:*:repository/*"
+      },
+      {
+        Effect = "Allow"
+        Action = [
+          "eks:DescribeCluster",
+          "eks:ListClusters",
+          "eks:AccessKubernetesApi"
+        ],
+        "Resource": "*"
       }
     ]
   })
