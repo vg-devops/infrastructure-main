@@ -44,3 +44,12 @@ module "vpc_application" {
     Project     = "exa-devops-assessment"
   }
 }
+
+resource "aws_route" "intra_subnets_extra_rt_destination_to_nat_gw" {
+  count                  = length(module.vpc_application.intra_route_table_ids)
+  route_table_id         = module.vpc_application.intra_route_table_ids[count.index]
+  destination_cidr_block = "0.0.0.0/0"
+  nat_gateway_id         = module.vpc_application.natgw_ids[0]
+
+  depends_on = [module.vpc_application]
+}
