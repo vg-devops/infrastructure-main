@@ -32,6 +32,13 @@ module "vpc_application" {
   enable_dns_support   = true
   
   create_multiple_intra_route_tables = true
+
+  intra_route_table_tags = {
+    Name = "eks-fargate-intra-route-table"
+    Environment = "development"
+    Project     = "exa-devops-assessment"
+  }
+
   tags = {
     Environment = "development"
     Project     = "exa-devops-assessment"
