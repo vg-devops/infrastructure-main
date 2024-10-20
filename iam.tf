@@ -6,6 +6,20 @@ resource "aws_iam_policy" "ecr_access_policy" {
     Version = "2012-10-17"
     Statement = [
       {
+        "Effect": "Allow",
+        "Action": [
+            "eks:DescribeCluster"
+        ],
+        "Resource": "arn:aws:eks:eu-west-2:*:cluster/exa-assessment-cluster"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+            "eks:ListClusters"
+        ],
+        "Resource": "*"
+      },
+      {
         Effect = "Allow"
         Action = [
           "ecr:GetAuthorizationToken"
