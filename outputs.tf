@@ -44,3 +44,8 @@ output "vpc_cidr" {
   description = "Network CIDR of Application VPC created"
   value       = module.vpc_application.vpc_cidr_block
 }
+
+output "ecr_user_arn" {
+  description = "aws res name for ecr-user"
+  value       = aws_iam_user.ecr_user.arn
+}
