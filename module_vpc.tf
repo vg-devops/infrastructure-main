@@ -30,8 +30,8 @@ module "vpc_application" {
 
   enable_dns_hostnames = true
   enable_dns_support   = true
-
-
+  
+  create_multiple_intra_route_tables = true
   tags = {
     Environment = "development"
     Project     = "exa-devops-assessment"
