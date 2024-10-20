@@ -40,7 +40,7 @@ module "bastion" {
   vpc_zone_identifier = module.vpc_application.public_subnets  # Use public subnets from your VPC module
   min_size            = 0
   max_size            = 1
-  desired_capacity    = 1
+  desired_capacity    = 0
 
   image_id      = "ami-0b4c7755cdf0d9219"  # Amazon Linux 2 AMI ID for eu-west-2
   instance_type = "t2.micro"
